@@ -48,8 +48,11 @@
   - type：标号类型，取值：1、a、A、i、I
   - start：从第几个开始编号
 ## 滚动字幕标记`<marquee>`
-- 语法格式：`<marquee>滚动的内容</marquee>`
-- 常用属性：
+### 语法格式
+```
+<marquee>滚动的内容</marquee>
+```
+### 常用属性：
   - Direction：滚动方向，取值：up、down、left、right 
   - Width：滚动宽度
   - Height：滚动高度
@@ -58,8 +61,11 @@
   - ScrollDelay：两部之间的停留时间，以毫秒为单位
   - Loop：循环滚动次数
 ## 图片标记：行内元素，单边标记
-- 语法格式：`<img 属性=“值”>`
-- 常用属性：
+### 语法格式：
+```
+<img 属性=“值”>
+```
+### 常用属性：
   - Width：图片宽度
   - Height：图片高度
   - Border：图片边框粗细
@@ -67,13 +73,16 @@
   - Align：图片的水平对齐方式，取值：left、center、right
   - Hspace：图片与左右文字之间的距离
   - Vspace：图片与上下文字之间的距离
-- 如果图片想等比例缩放，只需要指定width或height其中一个
-- Align属性只能让文本居中，不能让图片单独居中
-  - Align可以实现图文混排效果。Align=“left | right”
-  - 要想让图片实现居中效果，可以给图片增加一个`<div>`元素
+  - 如果图片想等比例缩放，只需要指定width或height其中一个
+  - Align属性只能让文本居中，不能让图片单独居中
+    - Align可以实现图文混排效果。Align=“left | right”
+    - 要想让图片实现居中效果，可以给图片增加一个`<div>`元素
 ## 超级链接：行内元素，不要嵌套
-- 语法格式：`<a  属性=“值”>……</a>`
-- 常用属性
+### 语法格式
+```
+<a  属性=“值”>……</a>
+```
+### 常用属性
   - Href：目标文件的地址URL，该URL可以是相对地址，也可以是绝对地址
   - Target：目标文件的显示窗口
     - _blank：在新窗口中打开目标文件
@@ -154,13 +163,19 @@
 1. 严格型的DTD
 - 不能再使用各种表现的标记。如`<font>`、`<b>`、`<body bgColor>`
 - 要求必须使用CSS	来取代各种表现标记
-- `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">`
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+```
 2. 过渡型的DTD
 - 可以继续使用HTML中的表现的写法
 - 这些表现标记，还可以继续使用，如`<font>`、`<b>`、`<body bgColor>`
-- `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+```
 3. 框架型的DTD
-- `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+```
 ## 表格标签：块元素
 ### 表格的结构
 ```
@@ -222,7 +237,7 @@
   <input type="submit" value="提交表单">
 </form>
 ```
-### `<form>`标记属性 
+## `<form>`标记属性 
 - `name`：给表单起个名字。这个名字主要给JavaScript来进行客户端表单验证。
 - `method`：指定表单的提交方式。取值：`get`、`post`。
 - `action`：指定表单的处理程序，一般是PHP文件。
@@ -231,8 +246,8 @@
 - `enctype`：指定表单数据的编码方式（加密方式）。这个属性只能用在`method="post"`方式下。
   - `application/x-www-form-urldecoded` //**默认的加密方式**
   - `multipart/form-data` //**如果你要上传文件，属性值必须为它**
-#### GET方法和POST方法
-##### GET提交方式（基本上用不着）
+### GET方法和POST方法
+#### GET提交方式（基本上用不着）
 将表单数据追加到`action`指定的处理程序的后面，然后向服务器发出请求。
 **注意：地址栏传数据的方式默认就是GET方式。**
 例：
@@ -247,24 +262,143 @@
 
 **如果某个表单元素不想往服务器传递数据，那么我们可以不给它添加`name`属性。**
 **传递到服务器的数据，如果没有name，则无法获取它的值**。
-###### GET方式的特点
+##### GET方式的特点
 1. GET方式不能提交敏感数据，如：密码。
 2. GET方式只能提交少量数据。因为地址栏的长度有限制。
 3. GET方式不能传递附件。
-##### POST提交方式（常用方式）
+#### POST提交方式（常用方式）
 POST提交方式，它不是将表单数据追加到地址上，而是直接传给表单处理程序。
-###### POST提交方式的特点
+##### POST提交方式的特点
 1. POST方式提交的数据相对安全。
 2. POST方式可以提交海量数据。
 3. POST方式可以上传附件。
-### 单行文本域
-#### 语法格式
+## 单行文本域
+### 语法格式
 ```
 <input type="text" 属性="值">
 ```
-#### 常用属性
+### 常用属性
 - `name`：文本框的名字。命名规则：可以包含字母、数字、下划线，但**只能以字母开头**。
 - `type`：表单元素的类型。
 - `value`：文本框中的值。
 - `size`：文本框的长度。以字符为单位。
-- 
+- `maxLength`：最多可以输入多少个字符，超出的就输不进去了。
+- `readonly`：只读属性。可以选中，但不能修改。例：`readonly="readonly"`
+- `disabled`：禁用属性。不能选中，不能修改。例：`disabled="disabled"` 
+## 单行密码域
+### 语法格式
+```
+<input type="password" 属性="值">
+```
+### 常用属性
+- `name`：密码框的名字。命名规则：可以包含字母、数字、下划线，但**只能以字母开头**。
+- `type`：表单元素的类型。
+- `value`：密码框中的值。
+- `size`：密码框的长度。以字符为单位。
+- `maxLength`：最多可以输入多少个字符，超出的就输不进去了。
+- `readonly`：只读属性。可以选中，但不能修改。例：`readonly="readonly"`
+- `disabled`：禁用属性。不能选中，不能修改。例：`disabled="disabled"`
+## 单选按钮
+### 语法格式
+```
+<input type="radio" 属性="值">
+```
+### 常用属性
+- `name`：元素的名称。
+- `value`：元素的值，value中的数据将发送到服务器。
+- `checked`：默认选择哪一项。如`checked="checked"`
+
+**注意：一组单选按钮，只能选择一个，但`name`的值必须一致。**
+**单选按钮用户不能输入内容，用户只能选择，因此必须为它指定默认值`value`。**
+## 复选框
+### 语法格式
+```
+<input type="checkbox" 属性="值">
+```
+### 常用属性
+- `name`：元素的名称。
+- `value`：元素的值。
+- `checked`：默认选择哪一项。如`checked="checked"`
+
+**注意：复选框也是一组选项，因此name的值必须一致。在PHP中，使用数组来获取多个同名name的值。**
+**复选框可以同时选择多个，也可以一个都不选。**
+
+## 下拉列表
+### 语法格式
+```
+<select name="城市">
+  <option value="北京市">北京市</option>
+  <option value="天津市">天津市</option>
+  <option value="重庆市">重庆市</option>
+</select>
+```
+### `<select>`只有一个属性：`name`
+### `<option>`的属性有两个：`value`，`selected`
+- `value`：元素的值。
+- `selected`：默认选中。例：`selected="selected"`
+
+## 文本区域
+### 语法格式
+```
+<textarea name="名称" cols="宽度" rows="高度">
+</textarea>
+```
+### 常用属性
+- `name`：元素名称。
+- `cols`：宽度，是指多少个字符宽。
+- `rows`：高度，是指几行高。
+
+**注意：`<textarea>`和`</textarea>`之间是默认文本**
+
+## 提交按钮
+**提交表单**
+### 语法格式
+```
+<input type="submit" value="提交表单"/>
+```
+## 重置按钮
+**重置表单**
+### 语法格式
+```
+<input type="reset" value="重新填写" />
+```
+## 图片按钮
+**默认动作是提交表单，与`submit`功能相同**
+### 语法格式
+```
+<input type="image" src="..." />
+```
+## 普通按钮
+**本身不具备任何功能，一般要与JS程序配合使用。**
+### 语法格式
+```
+<input type="button" onclick="javasript:window.close()" value="关闭窗口" />
+```
+## 上传文本域
+### 语法格式
+```
+<input type="file" name="UploadFile" />
+```
+### 常用属性
+- `name`：元素的名称。
+- `value`：元素的值。其实就是上传的文件名。
+*`value`属性是只读属性，value的内容只能来自于手动选择上传的文件，而不能自己指定路径。**为了安全起见，value是只读的。***
+
+**注意!!!：要上传文件必须还指定表单的`method="post"`，并且声明`enctype="multipart/form-data"`**
+## 隐藏域
+### 功能
+隐藏域就是看不见的一些框。传递一些值，而这个值又不想让别人看见。
+### 用处
+主要用于PHP后台程序，如：修改某一条新闻内容时，需要传递一个新闻的id号。
+### 语法格式
+```
+<input type="hidden" name="名称" value="默认值">
+```
+## `<caption>`表格标题
+### 语法格式
+```
+<caption></caption>
+```
+### 提示
+- `<caption>`标记是`<table>`的子标记。
+- `<caption>`标记放在`<table>`开始标签之后（位于第一个`<tr>`之前）。
